@@ -1,0 +1,33 @@
+.button {
+  display: flex;
+  flex-shrink: 0;
+  gap: 9px;
+  align-items: center;
+  justify-content: center;
+  width: max-content;
+  height: 42px;
+  padding: 0 20px;
+  font-size: var(--font-xsm);
+  font-weight: 600;
+  color: var(--color-on-accent);
+  text-decoration: none;
+  cursor: pointer;
+  background-color: var(--color-accent);
+  border: 0;
+  border-radius: var(--radius-button);
+  transition: 0.2s;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-accent-hover);
+  }
+
+  & svg {
+    font-size: var(--font-base);
+  }
+}

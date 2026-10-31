@@ -1,0 +1,19 @@
+/*
+ * Foreground UI that sits on the hero image. Colour tokens are pinned to their on-image
+ * values here so the controls stay legible over the photo in both light and dark themes.
+ * Dialogs are portalled to <body>, so they keep the normal theme colours.
+ */
+.stage {
+  --color-foreground: var(--color-on-image);
+  --color-button: rgb(255 255 255 / 12%);
+  --color-button-hover: rgb(255 255 255 / 18%);
+  --color-accent: #e8d5b5;
+  --color-accent-hover: #f1e3cb;
+  --color-on-accent: #1d1810;
+
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  width: 100%;
+}

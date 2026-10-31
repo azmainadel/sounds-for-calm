@@ -1,0 +1,26 @@
+.button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  font-size: var(--font-md);
+  color: var(--color-foreground);
+  pointer-events: auto;
+  cursor: pointer;
+  background-color: var(--color-surface);
+  border: 0;
+  border-radius: var(--radius-button);
+  box-shadow: var(--shadow-floating);
+  transition: 0.2s;
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-surface-hover);
+  }
+}

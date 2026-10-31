@@ -1,0 +1,51 @@
+.unselectWrapper {
+  flex: none;
+  overflow: visible;
+}
+
+.unselectButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 46px;
+  height: 46px;
+  font-family: var(--font-heading);
+  font-size: var(--font-md);
+  line-height: 0;
+  color: var(--color-foreground);
+  cursor: pointer;
+  background-color: var(--color-button);
+  border: 0;
+  border-radius: var(--radius-button);
+  backdrop-filter: blur(12px);
+  transition:
+    background-color 180ms ease,
+    transform 120ms ease;
+
+  &:disabled,
+  &.disabled {
+    cursor: not-allowed;
+  }
+
+  &:active {
+    transform: scale(0.97);
+  }
+
+  &:hover,
+  &:focus-visible {
+    background-color: var(--color-button-hover);
+  }
+
+  &:focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+}
+
+.tooltip {
+  padding: 6px 12px;
+  font-size: var(--font-xsm);
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+}
