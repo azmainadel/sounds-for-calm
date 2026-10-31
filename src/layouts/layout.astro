@@ -1,0 +1,83 @@
+---
+import { Font } from 'astro:assets';
+
+import { count } from '@/lib/sounds';
+
+import '@/styles/global.css';
+
+interface Props {
+  description?: string;
+  title?: string;
+}
+
+const title = Astro.props.title || 'Sounds for Calm';
+const description =
+  Astro.props.description ||
+  `Layer ${count()} ambient sounds, save presets, and use a guided breathing exercise.`;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta content="width=device-width" name="viewport" />
+    <meta content={Astro.generator} name="generator" />
+    <meta content="#18181b" name="theme-color" />
+    <script is:inline>
+      (() => {
+        const saved = localStorage.getItem('moodist-theme');
+        const preference = ['system', 'light', 'dark'].includes(saved)
+          ? saved
+          : 'system';
+        const theme =
+          preference === 'system'
+            ? matchMedia('(prefers-color-scheme: dark)').matches
+              ? 'dark'
+              : 'light'
+            : preference;
+
+        document.documentElement.dataset.theme = theme;
+        document.documentElement.style.colorScheme = theme;
+        document
+          .querySelector('meta[name="theme-color"]')
+          ?.setAttribute('content', theme === 'dark' ? '#18181b' : '#fafafa');
+      })();
+    </script>
+    <link href="/favicon.ico" rel="icon" sizes="any" />
+    <link
+      href="/favicon-32x32.png"
+      rel="icon"
+      sizes="32x32"
+      type="image/png"
+    />
+    <link
+      href="/favicon-16x16.png"
+      rel="icon"
+      sizes="16x16"
+      type="image/png"
+    />
+    <link href="/apple-touch-icon.png" rel="apple-touch-icon" sizes="180x180" />
+    <Font cssVariable="--font-dm-sans" preload={[{ weight: 400 }]} />
+    <Font cssVariable="--font-instrument-serif" preload />
+
+    <title>{title}</title>
+    <meta content={title} name="title" />
+    <meta content={description} name="description" />
+
+    <meta content={title} property="og:title" />
+    <meta content={description} property="og:description" />
+    <meta content="Sounds for Calm" property="og:site_name" />
+    <meta content="https://sounds.azmainadel.com" property="og:url" />
+    <meta content="website" property="og:type" />
+    <meta
+      content="https://sounds.azmainadel.com/og.png"
+      property="og:image"
+    />
+
+    <meta content="summary_large_image" name="twitter:card" />
+
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>

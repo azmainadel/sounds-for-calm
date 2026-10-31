@@ -1,0 +1,14 @@
+---
+import Layout from '@/layouts/layout.astro';
+
+import Hero from '@/components/hero.astro';
+import { App } from '@/components/app';
+import CategoryIcons from '@/components/categories/category-icons/category-icons';
+---
+
+<Layout title="Sounds for Calm">
+  <Hero>
+    <CategoryIcons client:load />
+    <App client:load />
+  </Hero>
+</Layout>
